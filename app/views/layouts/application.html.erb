@@ -11,14 +11,16 @@
   </head>
 
   <body>
-  <header>
+  <h3>
     <ul id='navbar'>
       <li><a href='/'>Home<a/></li>
-      <li><a href='/'>About<a/></li>
-      <li><a href=''>Application<a/></li>
-      <li><a href=''>Tuition<a/></li>
+      <li><a href='/welcome/about'>About<a/></li>
+      <li><a href='/welcome/applications'>Application<a/></li>
+      <li><a href='/welcome/tuition'>Tuition<a/></li>
+      <li class='logOrSign'><a href='/admin/log_in'>Professor<a/></li>
+      <li class='logOrSign'><a href='/student/log_in'>Student<a/></li>
     </ul>
-  </header>
+  </h3>
     <%= yield %>
   </body>
 </html>
