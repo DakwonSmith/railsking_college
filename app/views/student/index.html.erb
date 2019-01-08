@@ -2,30 +2,23 @@
 <br>
 <h1> Student Buzz <h1>
 
+<button><a href='/s_posts/new'>Create Post<a></button>
 
-<%= form_with scope: :discussion, local: true do |form| %>
-  <h6>
-    <%= form.label :subject %><br>
-    <%= form.text_field :title %>
-  </h6>
- 
-  <h6>
-    <%= form.label :body %><br>
-    <%= form.text_area :text %>
-  </h6>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<table>
 
-
-<p>
-  <strong>Subject:</strong>
-  <%= @student.subject %>
-</p>
+<h1>Listing articles</h1>
  
-<p>
-  <strong>Body:</strong>
-  <%= @student.body %>
-</p
+<table>
+  <tr>
+    <th>Title:</th>
+    <th>Text:</th>
+    <th>Person:</th>
+  </tr>
+  <% @s_post.each do |s_post| %>
+    <tr>
+      <td><i></i><%= s_post.title %></td>
+      <td><i></i><%= s_post.text %></td>
+      <td><i></i><%= s_post.id %></td>
+    </tr>
+  <% end %>
+</table>

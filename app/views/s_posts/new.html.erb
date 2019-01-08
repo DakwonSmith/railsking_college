@@ -1,0 +1,17 @@
+<h1>Student create post</h1>
+
+<%= form_with scope: :s_posts	, url: s_posts_path, local: true do |form| %>
+  <h5>
+    <%= form.label :subject %><br>
+    <%= form.text_field :title %>
+  </h5>
+ 
+  <h5>
+    <%= form.label :body %><br>
+    <%= form.text_area :text %>
+  </h5>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
