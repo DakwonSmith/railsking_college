@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
   
-  root 'welcome#index'
+  constraints Clearance::Constraints::SignedIn.new do
+    root to: 'student#index', as: :signed_in_root
+  end
+  
+  constraints Clearance::Constraints::SignedOut.new do
+    root 'welcome#index'
+  end
+
+  
   
   get 'welcome/about'
   get 'welcome/applications'
@@ -15,7 +23,7 @@ Rails.application.routes.draw do
 
   get 'student/index'
   post 'student/index'
-  resources :s_posts
+  resources :posts
   
 
   get 'student/grades'

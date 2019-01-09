@@ -14,11 +14,11 @@
     <th>Text:</th>
     <th>Person:</th>
   </tr>
-  <% @s_post.each do |s_post| %>
+  <% @posts.each do |posts| %>
     <tr>
-      <td><i></i><%= s_post.title %></td>
-      <td><i></i><%= s_post.text %></td>
-      <td><i></i><%= s_post.id %></td>
+      <td><%= posts.title %></td>
+      <td><%= posts.text %></td>
+      <td><%= posts.id %></td>
     </tr>
   <% end %>
 </table>

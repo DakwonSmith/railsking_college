@@ -1,2 +1,0 @@
-class SPost < ApplicationRecord
-end
