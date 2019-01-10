@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = Post.new(params.require(:s_posts).permit(:title, :text))
+    @posts = Post.new(params.require(:posts).permit(:title, :text))
   
     @posts.save
-    redirect_to '/student/index'
+    redirect_to '/users/index'
   end
 end

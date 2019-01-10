@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
 
   
+  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resource :session, controller: "clearance/sessions", only: [:create]
+
+  resources :users, controller: "clearance/users", only: [:create] do
+    resource :password,
+      controller: "clearance/passwords",
+      only: [:create, :edit, :update]
+  end
+
+  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get "/sign_up" => "clearance/users#new", as: "sign_up"
   constraints Clearance::Constraints::SignedIn.new do
-    root to: 'student#index', as: :signed_in_root
+    root to: 'user#index', as: :signed_in_root
   end
   
   constraints Clearance::Constraints::SignedOut.new do
@@ -15,19 +27,13 @@ Rails.application.routes.draw do
   get 'welcome/applications'
   get 'welcome/tuition'
 
-  get 'welcome/log_in'
-  post 'welcome/log_in'
-  get 'welcome/sign_up'
-  post 'welcome/sign_up'
+  
+  resources :users,
+    controller: 'users'
+    
 
-
-  get 'student/index'
-  post 'student/index'
   resources :posts
   
 
-  get 'student/grades'
-  get 'student/courses'
-  get 'student/profile'
   
 end

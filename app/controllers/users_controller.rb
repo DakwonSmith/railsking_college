@@ -1,34 +1,36 @@
-class UsersController < Clearance::UsersController
-  layout "authentication"
+class UsersController < ApplicationController
+  #layout "authentication"
 
   #before_action :require_login, only: [:new]
 
-  def new
-    @user = User.new 
+  def index
+    @users = User.all
   end
 
+  def new
+    @user = User.new 
+  end #End of new
+
   def create
-    @user = User.new(user_params)
+    @user = User.new(params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :encrypted_password))
     if @user.save
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
-      redirect_to root_url
+      redirect_to 'users#index'
     else
       flash[:notice] = "Form is invalid"
       flash[:color]= "invalid"
       redirect_to back
-    end
-    
-  end
+    end #End of If statement
+  end #end of create
+  
 
-  private
-    def user_params
-      params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :encrypted_password)
-    end
 
-end
+
 
 
   def show
-  end
-end
+    @user = User.find(params[:id])
+  end #End of Show 
+
+end #end of class

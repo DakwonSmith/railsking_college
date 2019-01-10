@@ -2,23 +2,9 @@
 <br>
 <h1> Student Buzz <h1>
 
-<button><a href='/s_posts/new'>Create Post<a></button>
+<button><a href='/posts/new'>Create Post<a></button>
 
 <table>
 
 <h1>Listing articles</h1>
  
-<table>
-  <tr>
-    <th>Title:</th>
-    <th>Text:</th>
-    <th>Person:</th>
-  </tr>
-  <% @posts.each do |posts| %>
-    <tr>
-      <td><%= posts.title %></td>
-      <td><%= posts.text %></td>
-      <td><%= posts.id %></td>
-    </tr>
-  <% end %>
-</table>

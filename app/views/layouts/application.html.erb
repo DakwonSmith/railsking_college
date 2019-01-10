@@ -17,24 +17,27 @@
       <li><a href='/welcome/about'>About<a/></li>
       <li><a href='/welcome/applications'>Application<a/></li>
       <li><a href='/welcome/tuition'>Tuition<a/></li>
-      <li class="logOrSign"><%= link_to 'Sign up', sign_up_path %></li>      
-      <li class="logOrSign">
-        <% if signed_in? %>
-          Signed in as: <%= current_user.email %>
-          <%= button_to 'Sign out', sign_out_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Log in', sign_in_path %>
-        <% end %>
-      </li>
-      <div id="flash">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-      </div>
-        
-
+      <li class='logOrSign'><a href='/sign_up'>Sign up<a/></li>
+      <li class='logOrSign'><a href='/log_in'>Log in<a/></li>
     </ul>
   </h3>
     <%= yield %>
   </body>
 </html>
+
+
+        <% if signed_in? %>
+          <span><%= current_user.email %></span>
+          <%= link_to 'Sign out', sign_out_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Log in', sign_in_path %>
+        <% end %>
+      </li>      
+      <li class="logOrSign">
+        <% if signed_in? %>
+          Signed in as: <%= user.email %>
+          <%= button_to 'Sign out', sign_out_path, method: :delete %>
+        <% else %>
+         <li class='logOrSign'> <%= @users.first</li>
+        <% end %>
+      </li>

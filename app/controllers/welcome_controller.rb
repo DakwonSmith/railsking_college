@@ -1,15 +1,12 @@
 class WelcomeController < ApplicationController
   
   def index
+    @users = User.all
   end
 
-  def about
+  def show
+    @users = User.find(params[:id])
   end
 
-  def application
-  end
-
-  def tuition
-  end
-
+ 
 end

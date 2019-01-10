@@ -4,14 +4,13 @@
     <%= form.text_field :username, type: 'username' %>
   </div>
 
-
   <div class="password-field">
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
 
   <div class="submit-field">
-    <%= form.submit %>
+    <%= form.submit 'Log in' %>
   </div>
 
   <div class="other-links">
@@ -21,3 +20,11 @@
     <%= button_to t(".forgot_password"), new_password_path %>
   </div>
 <% end %>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
