@@ -41,4 +41,12 @@ li a:hover{
   padding-right: 4px;
 }
 
+html{
+  background: url(Hamilton_Logo_1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.college{
+  text-align: center
+}
 
